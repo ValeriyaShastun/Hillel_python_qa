@@ -44,7 +44,7 @@ except FileNotFoundError as e:
     raise e
 
 with open('example.txt') as file:
-    text = file.read()
+    text = file.read().lower()
     text_split = text.split()
     min_count = 999
     max_count = 1
@@ -60,7 +60,6 @@ with open('example.txt') as file:
     print(min_count, min_word)
 
     #or
-
     sorted_list = sorted(text_split, key=text_split.count)
     most_frequent_word = sorted_list[-1]
     print(most_frequent_word, sorted_list.count(most_frequent_word))
