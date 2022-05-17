@@ -38,43 +38,41 @@
 
 try:
     with open('example.txt', "r") as file:
-        text = file.read().lower()
-        text_split = text.split(' ')
-        min_count = 999
-        max_count = 1
-        min_word = ""
-        max_word = ""
-        for word in text_split:
-            count = text_split.count(word)
-            if count <= min_count:
-               min_count, min_word = count, word
-            elif count >= max_count:
-               max_count, max_word = count, word
-        print(max_count, max_word)
-        print(min_count, min_word)
+        text = file.read()
+    text_lower = text.lower()
+    text_split = text_lower.split(' ')
+    min_count = 999
+    max_count = 1
+    min_word = ""
+    max_word = ""
+    for word in text_split:
+        count = text_split.count(word)
+        if count <= min_count:
+           min_count, min_word = count, word
+        elif count >= max_count:
+           max_count, max_word = count, word
+    print(max_count, max_word)
+    print(min_count, min_word)
+    #or
+    sorted_list = sorted(text_split, key=text_split.count)
+    most_frequent_word = sorted_list[-1]
+    print(most_frequent_word, sorted_list.count(most_frequent_word))
+    most_rare_word = sorted_list[0]
+    print(most_rare_word, sorted_list.count(most_rare_word))
 
-        #or
-        sorted_list = sorted(text_split, key=text_split.count)
-        most_frequent_word = sorted_list[-1]
-        print(most_frequent_word, sorted_list.count(most_frequent_word))
-        most_rare_word = sorted_list[0]
-        print(most_rare_word, sorted_list.count(most_rare_word))
+    # replacing most frequent to most rare word:
+    replaced_text_split = text_lower.replace(most_frequent_word, most_rare_word).split()
+    # making line of 10 words
+    text_to_write = []
+    for idx, element in enumerate(replaced_text_split):
+        text_to_write.append(element)
+        if idx % 10 == 0 and idx > 0:
+            text_to_write.append("\n")
+
+    with open("spam.txt", "x") as spam:
+        spam.write(" ".join(text_to_write))
+
 except FileNotFoundError as e:
     print("The file example.txt doesn't exist")
-
-with open("spam.txt", "w") as spam:
-    replaced_text = text.replace(most_frequent_word, most_rare_word)
-    spam.write(replaced_text)
-
-# Длина строки - 10 слов (необязательное дополнительное задание)
-with open("spam.txt", "r") as file_1:
-    file_read = file_1.read().split()
-
-with open("spam.txt", "w") as file_to_write:
-    index = 1
-    for word in file_read:
-        word_to_write = file_read.pop(file_read.index(word))
-        file_to_write.writelines(f"{word_to_write} ")
-        if index % 10 == 0:
-            file_to_write.writelines("\n")
-        index += 1
+except FileExistsError as err:
+    print("The file spam.txt already exists")
