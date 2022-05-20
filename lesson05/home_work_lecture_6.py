@@ -7,10 +7,11 @@ def is_even(a):
     Возвращает True - если он четный
     Возвращает False - если не четный
     """
-    if a % 2 == 0:
-        return True
-    else:
-        return False
+    # if a % 2 == 0:
+    #     return True
+    # else:
+    #     return False
+    return True if a % 2 == 0 else False # тернарный оператор
 
 assert is_even(1) is False
 assert is_even(10) is True
@@ -24,7 +25,6 @@ def is_odd(odd_num):
     Возвращает False - если он четный
     Возвращает True - если не четный
     """
-    global is_even
     return not is_even(odd_num)
 
 assert is_odd(2) is False
@@ -37,10 +37,11 @@ def custom_max(aa, bb):
     Не использовать фнукцию max внути
     Возвращает наибольший из двух элементов
     """
-    if aa > bb:
-        return aa
-    else:
-        return bb
+    # if aa > bb:
+    #     return aa
+    # else:
+    #     return bb
+    return aa if aa > bb else bb # тернарный оператор
 
 assert custom_max(1, 10) == max(1, 10)
 assert custom_max(100, 10) == max(100, 10)
@@ -52,8 +53,12 @@ def multiply(*kwargs, base=1):
     base по умолчанию равен 1
     Возвращает результат перемножения всех переданных аргументов и необязательного
     """
-    return reduce(lambda total, val: total * val, kwargs) * base
-
+    # return reduce(lambda total, val: total * val, kwargs) * base
+    num_to_remember = 1
+    for num in kwargs:
+        result = num * num_to_remember
+        num_to_remember = result
+    return num_to_remember * base
 
 example_list = list(range(1, 10))
 
@@ -77,10 +82,15 @@ def upper_count(str_to_count_upper: str):
     Принимает один агрумент, строку
     Возвращает кол-во букв в верхнем регистре
     """
-    count = 0
-    for letter in str_to_count_upper:
-        if letter.isupper():
-            count += 1
+    # sum((True, False, False, True)) == 2
+    # count = 0
+    # for letter in str_to_count_upper:
+    #     if letter.isupper():
+    #         count += 1
+    # return count
+
+    list_to_check = [letter.isupper() for letter in str_to_count_upper]
+    count = sum(list_to_check)
     return count
 
 assert upper_count("") == 0
@@ -92,8 +102,7 @@ def unique(list_to_process: list):
     Принмает один аргумент, список
     Возвращает список уникальных элементов этого списка отсортированных от меньшего к большему
     """
-    sorted_list_unique = list(set(sorted(list_to_process)))
-    return sorted_list_unique
+    return list(set(sorted(list_to_process)))
 
 assert unique([2, 2, 1, 5, 5, 2, 7]) == [1, 2, 5, 7]
 
