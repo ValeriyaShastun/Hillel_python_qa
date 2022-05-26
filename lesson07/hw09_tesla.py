@@ -4,7 +4,7 @@ class Tesla:
     def __init__(self,
                  obj_attr_car_name,
                  obj_attr_car_acceleration,
-                 obj_property_current_velocity
+                 current_speed
                  ):
         if type(obj_attr_car_name) is not str:
             raise TypeError("obj_attr_car_name must be str, received value:"
@@ -12,7 +12,7 @@ class Tesla:
         elif not obj_attr_car_name:
             raise ValueError("obj_attr_car_name must contain one or more letter, it cannot be empty string")
         else:
-            self.car_name = obj_attr_car_name
+            self.obj_attr_car_name = obj_attr_car_name
 
         if type(obj_attr_car_acceleration) is not int:
             raise TypeError("obj_attr_car_acceleration must be int, received value:"
@@ -21,35 +21,34 @@ class Tesla:
             raise ValueError(f"obj_attr_car_acceleration cannot be lte 0, received value:"
                              f"{obj_attr_car_acceleration}")
         else:
-            self.car_acceleration = obj_attr_car_acceleration
+            self.obj_attr_car_acceleration = obj_attr_car_acceleration
 
-        self.set_speed = obj_property_current_velocity
-
+        self._current_speed = current_speed # property, see below
 
     def raise_speed(self):
         """
         Raises speed of the car
         :return: speed after raising it
         """
-        self.current_velocity += self.car_acceleration
+        self._current_speed += self.obj_attr_car_acceleration
 
     def reduce_speed(self):
         """
         Reduces speed of the car
         :return: speed after reducing it
         """
-        self.current_velocity -= self.car_acceleration
+        self._current_speed -= self.obj_attr_car_acceleration
 
     @property
-    def set_speed(self) -> int:
+    def current_speed(self) -> int:
         """
         Getter for current velocity
         :return: current_velocity parameter
         """
-        return self.current_velocity
+        return self._current_speed
 
-    @set_speed.setter
-    def set_speed(self, speed_from_user: int):
+    @current_speed.setter
+    def current_speed(self, speed_from_user: int):
         """
         Setter for current velocity
         :param speed_from_user: speed to be set as current
@@ -62,7 +61,7 @@ class Tesla:
             raise ValueError(f"obj_property_current_velocity cannot be lte 0, received value:"
                              f"{speed_from_user}")
         else:
-            self.current_velocity = speed_from_user
+            self._current_speed = speed_from_user
 
     def calculate_speed_adjust(self, car_speed_goal: int) -> float:
         """
@@ -77,26 +76,27 @@ class Tesla:
         elif car_speed_goal <= 0:
             raise ValueError(f"car_speed_goal should be gte 0")
         else:
-            if self.current_velocity < car_speed_goal:
-                increase = round(car_speed_goal / self.current_velocity, 1)
+            if self._current_speed < car_speed_goal:
+                increase = round(car_speed_goal / self._current_speed, 1)
                 print(f'You should increase speed in {increase} times')
                 return increase
-            elif self.current_velocity > car_speed_goal:
-                decrease = round(self.current_velocity / car_speed_goal, 1)
+            elif self._current_speed > car_speed_goal:
+                decrease = round(self._current_speed / car_speed_goal, 1)
                 print(f'You should decrease speed by {decrease} times')
                 return decrease
             else:
-                return self.current_velocity
+                print("Current speed equals to speed goal")
+                return self._current_speed
 
 
-car = Tesla(obj_attr_car_name = "Banana", obj_attr_car_acceleration = 3, obj_property_current_velocity = 45)
+car = Tesla(obj_attr_car_name="Banana", obj_attr_car_acceleration=3, current_speed=45)
 attr = car.tesla_class_attr
 print(f'Class attr -> {attr}')
 car.raise_speed()
-print(f'speed after increasing {car.set_speed}')
+print(f'speed after increasing {car.current_speed}')
 car.reduce_speed()
-print(f'speed after reducing {car.set_speed}')
-car.set_speed = 66
-print(f"{car.set_speed} - speed after setting it by user")
+print(f'speed after reducing {car.current_speed}')
+car.current_speed = 66
+print(f"{car.current_speed} - speed after setting it by user")
 car.calculate_speed_adjust(90)
 print("---END--")
