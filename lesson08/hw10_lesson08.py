@@ -6,13 +6,13 @@ class GetPagesCount:
     def __init__(self, url):
         self.url = url
 
-    def get_pages_count(self, url):
+    def get_pages_count(self):
         """
         Will give quantity of pages which are available in the web page
         :param url: url of web page
-        :return: pages count
+        :return: pages' count
         """
-        req = requests.get(url)
+        req = requests.get(self.url)
         soup = BeautifulSoup(req.content, 'html.parser')
         tag_with_next_page = soup.find("li", class_="next")
         count = 1
@@ -27,5 +27,5 @@ class GetPagesCount:
 
 if __name__ == "__main__":
     url = "https://quotes.toscrape.com/"
-    pages_count = GetPagesCount(url).get_pages_count(url)
+    pages_count = GetPagesCount(url).get_pages_count()
     print(f"Total pages amount on website is {pages_count}")
