@@ -17,7 +17,7 @@ class GetPagesCount:
         tag_with_next_page = soup.find("li", class_="next")
         count = 1
         while tag_with_next_page is not None:
-            link_to_next_page = "https://quotes.toscrape.com" + tag_with_next_page.find("a").get("href")
+            link_to_next_page = self.url + tag_with_next_page.find("a").get("href")
             next_page_navigate = requests.get(link_to_next_page)
             soup = BeautifulSoup(next_page_navigate.content, 'html.parser')
             tag_with_next_page = soup.find("li", class_="next")
