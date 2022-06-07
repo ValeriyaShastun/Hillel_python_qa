@@ -1,6 +1,6 @@
 import logging
 import pytest
-from code_for_testing import Human
+from lesson10.HW12.code_for_testing import Human
 
 logger = logging.getLogger()
 logger.setLevel('INFO')
