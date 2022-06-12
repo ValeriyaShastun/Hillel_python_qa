@@ -1,14 +1,13 @@
 import logging
 import time
 import pytest
-from selenium.webdriver.common.by import By
 
 logger = logging.getLogger()
 logger.setLevel('INFO')
 
 
 @pytest.mark.positive
-def test_login_chrome_success(chrome_driver, generate_data_for_test):
+def test_login_chrome_success(chrome_driver, generate_data_for_test, login):
     """
     Description: test opens chrome browser, inserts login, password, presses button [Login],
     checks that url has changed for homepage url
@@ -28,19 +27,17 @@ def test_login_chrome_success(chrome_driver, generate_data_for_test):
     logger.info("Start of test test_login_chrome_success")
     driver = chrome_driver
     logger.info("Chrome driver has been created")
-    data_for_test = generate_data_for_test
     driver.maximize_window()
+    data_for_test = generate_data_for_test
     driver.get(data_for_test["login_url"])
     time.sleep(4)
-    driver.find_element(By.CSS_SELECTOR, data_for_test["username_selector"]).send_keys(data_for_test["username"])
-    driver.find_element(By.CSS_SELECTOR, data_for_test["password_selector"]).send_keys(data_for_test["password"])
-    driver.find_element(By.CSS_SELECTOR, data_for_test["login_button_selector"]).click()
+    login(driver, data_for_test)
     time.sleep(5)
     assert driver.current_url == data_for_test["home_page_url"]
 
 
 @pytest.mark.positive
-def test_login_firefox_success(firefox_driver, generate_data_for_test):
+def test_login_firefox_success(firefox_driver, generate_data_for_test, login):
     """
     Description: test opens firefox browser, inserts login, password, presses button [Login],
     checks that url has changed for homepage url
@@ -62,18 +59,15 @@ def test_login_firefox_success(firefox_driver, generate_data_for_test):
     logger.info("Firefox driver has been created")
     driver.maximize_window()
     data_for_test = generate_data_for_test
-    driver.maximize_window()
     driver.get(data_for_test["login_url"])
     time.sleep(4)
-    driver.find_element(By.CSS_SELECTOR, data_for_test["username_selector"]).send_keys(data_for_test["username"])
-    driver.find_element(By.CSS_SELECTOR, data_for_test["password_selector"]).send_keys(data_for_test["password"])
-    driver.find_element(By.CSS_SELECTOR, data_for_test["login_button_selector"]).click()
+    login(driver, data_for_test)
     time.sleep(5)
     assert driver.current_url == data_for_test["home_page_url"]
 
 
 @pytest.mark.positive
-def test_login_edge_success(edge_driver, generate_data_for_test):
+def test_login_edge_success(edge_driver, generate_data_for_test, login):
     """
     Description: test opens edge browser, inserts login, password, presses button [Login],
     checks that url has changed for homepage url
@@ -95,11 +89,8 @@ def test_login_edge_success(edge_driver, generate_data_for_test):
     logger.info("Edge driver has been created")
     driver.maximize_window()
     data_for_test = generate_data_for_test
-    driver.maximize_window()
     driver.get(data_for_test["login_url"])
     time.sleep(4)
-    driver.find_element(By.CSS_SELECTOR, data_for_test["username_selector"]).send_keys(data_for_test["username"])
-    driver.find_element(By.CSS_SELECTOR, data_for_test["password_selector"]).send_keys(data_for_test["password"])
-    driver.find_element(By.CSS_SELECTOR, data_for_test["login_button_selector"]).click()
+    login(driver, data_for_test)
     time.sleep(5)
     assert driver.current_url == data_for_test["home_page_url"]
