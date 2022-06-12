@@ -1,2 +1,11 @@
 .pytest_cache/*
 geckodriver.log
+/venv/
+Lecture/
+/lesson02/python_data_types/
+/lesson07/Lecture_9/
+/lesson08/Lectute_tests_and_parsing/
+/lesson09/HW_explanation/
+/lesson10/lesson_pytest/
+/lesson11/selenium_basics/
+
