@@ -9,8 +9,8 @@ logger.setLevel('INFO')
 @pytest.mark.positive
 def test_login_chrome_success(chrome_driver, generate_data_for_test, login):
     """
-    Description: test opens chrome browser, inserts login, password, presses button [Login],
-    checks that url has changed for homepage url
+    Description: Login with correct credentials to website using Chrome browser,
+    verify that login is successful
 
     Pre-conditions:
     1. Open chrome browser
@@ -39,8 +39,8 @@ def test_login_chrome_success(chrome_driver, generate_data_for_test, login):
 @pytest.mark.positive
 def test_login_firefox_success(firefox_driver, generate_data_for_test, login):
     """
-    Description: test opens firefox browser, inserts login, password, presses button [Login],
-    checks that url has changed for homepage url
+    Description: Login with correct credentials to website using Firefox browser,
+    verify that login is successful
 
     Pre-conditions:
     1. Open firefox browser
@@ -69,8 +69,8 @@ def test_login_firefox_success(firefox_driver, generate_data_for_test, login):
 @pytest.mark.positive
 def test_login_edge_success(edge_driver, generate_data_for_test, login):
     """
-    Description: test opens edge browser, inserts login, password, presses button [Login],
-    checks that url has changed for homepage url
+    Description: Login with correct credentials to website using Edge browser,
+    verify that login is successful
 
     Pre-conditions:
     1. Open edge browser
