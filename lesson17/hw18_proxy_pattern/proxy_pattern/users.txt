@@ -1,0 +1,6 @@
+first_name,last_name,age,gender,salary
+Peter,Griffin,45,male,1500
+Lois,Griffin,35,female,1000
+Homer,Simpson,50,male,3000
+Eric,Cartman,17,male,500
+Randy,Marsh,45,7000
