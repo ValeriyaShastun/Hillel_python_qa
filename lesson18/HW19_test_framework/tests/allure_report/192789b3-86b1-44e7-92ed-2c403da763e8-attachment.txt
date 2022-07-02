@@ -1,0 +1,49 @@
+INFO     root:conftest.py:65 user is on the home page
+INFO     root:wait.py:59 The element is not clickable
+ EXCEPTION: Message: 
+Stacktrace:
+0   chromedriver                        0x000000010e625649 chromedriver + 2741833
+1   chromedriver                        0x000000010ecdbfb3 chromedriver + 9781171
+2   chromedriver                        0x000000010e3b2308 chromedriver + 172808
+3   chromedriver                        0x000000010e3e641b chromedriver + 386075
+4   chromedriver                        0x000000010e4170c4 chromedriver + 585924
+5   chromedriver                        0x000000010e40359d chromedriver + 505245
+6   chromedriver                        0x000000010e414e94 chromedriver + 577172
+7   chromedriver                        0x000000010e403863 chromedriver + 505955
+8   chromedriver                        0x000000010e3d9ef1 chromedriver + 335601
+9   chromedriver                        0x000000010e3db125 chromedriver + 340261
+10  chromedriver                        0x000000010e5ec75c chromedriver + 2508636
+11  chromedriver                        0x000000010e5ff686 chromedriver + 2586246
+12  chromedriver                        0x000000010e5d1b51 chromedriver + 2399057
+13  chromedriver                        0x000000010e600a5f chromedriver + 2591327
+14  chromedriver                        0x000000010e5e26ec chromedriver + 2467564
+15  chromedriver                        0x000000010e61a2d8 chromedriver + 2695896
+16  chromedriver                        0x000000010e61a46b chromedriver + 2696299
+17  chromedriver                        0x000000010e62a558 chromedriver + 2762072
+18  libsystem_pthread.dylib             0x00007fff2066e8fc _pthread_start + 224
+19  libsystem_pthread.dylib             0x00007fff2066a443 thread_start + 15
+
+INFO     root:elements.py:24 Three element is already expanded
+INFO     root:wait.py:28 The element is not found in the page
+ EXCEPTION: Message: 
+Stacktrace:
+0   chromedriver                        0x000000010e625649 chromedriver + 2741833
+1   chromedriver                        0x000000010ecdbfb3 chromedriver + 9781171
+2   chromedriver                        0x000000010e3b2308 chromedriver + 172808
+3   chromedriver                        0x000000010e3e641b chromedriver + 386075
+4   chromedriver                        0x000000010e4170c4 chromedriver + 585924
+5   chromedriver                        0x000000010e40359d chromedriver + 505245
+6   chromedriver                        0x000000010e414e94 chromedriver + 577172
+7   chromedriver                        0x000000010e403863 chromedriver + 505955
+8   chromedriver                        0x000000010e3d9ef1 chromedriver + 335601
+9   chromedriver                        0x000000010e3db125 chromedriver + 340261
+10  chromedriver                        0x000000010e5ec75c chromedriver + 2508636
+11  chromedriver                        0x000000010e5ff686 chromedriver + 2586246
+12  chromedriver                        0x000000010e5d1b51 chromedriver + 2399057
+13  chromedriver                        0x000000010e600a5f chromedriver + 2591327
+14  chromedriver                        0x000000010e5e26ec chromedriver + 2467564
+15  chromedriver                        0x000000010e61a2d8 chromedriver + 2695896
+16  chromedriver                        0x000000010e61a46b chromedriver + 2696299
+17  chromedriver                        0x000000010e62a558 chromedriver + 2762072
+18  libsystem_pthread.dylib             0x00007fff2066e8fc _pthread_start + 224
+19  libsystem_pthread.dylib             0x00007fff2066a443 thread_start + 15

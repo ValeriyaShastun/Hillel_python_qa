@@ -1,0 +1,6 @@
+INFO     root:conftest.py:22 Start of fixture create_driver
+INFO     WDM:logger.py:16 ====== WebDriver manager ======
+INFO     WDM:logger.py:16 Current google-chrome version is 91.0.4472
+INFO     WDM:logger.py:16 Get LATEST chromedriver version for 91.0.4472 google-chrome
+INFO     WDM:logger.py:16 Driver [/Users/vshastun/.wdm/drivers/chromedriver/mac64/91.0.4472.101/chromedriver] found in cache
+INFO     root:base_api.py:20 Perform GET request
