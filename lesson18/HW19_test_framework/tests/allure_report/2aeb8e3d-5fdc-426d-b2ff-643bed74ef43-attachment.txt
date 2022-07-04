@@ -1,1 +1,0 @@
-INFO     root:conftest.py:28 End of fixture create_driver

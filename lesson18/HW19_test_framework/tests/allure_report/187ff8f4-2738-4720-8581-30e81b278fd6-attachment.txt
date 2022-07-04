@@ -1,4 +1,0 @@
-[WDM] - ====== WebDriver manager ======
-[WDM] - Current google-chrome version is 91.0.4472
-[WDM] - Get LATEST chromedriver version for 91.0.4472 google-chrome
-[WDM] - Driver [/Users/vshastun/.wdm/drivers/chromedriver/mac64/91.0.4472.101/chromedriver] found in cache

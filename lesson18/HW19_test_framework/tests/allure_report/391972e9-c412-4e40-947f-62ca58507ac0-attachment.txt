@@ -1,4 +1,0 @@
-INFO     root:base_api.py:27 Perform POST request
-INFO     root:base_api.py:20 Perform GET request
-INFO     root:base_api.py:34 Perform DELETE request
-INFO     root:conftest.py:28 End of fixture create_driver
